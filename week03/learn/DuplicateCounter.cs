@@ -25,6 +25,29 @@
     private static int CountDuplicates(int[] data)
     {
         // Add code here.
-        return 0;
+        Dictionary<int, int> counts = new Dictionary<int, int>();
+        int duplicates = 0;
+
+        foreach (int number in data)
+        {
+            if (counts.ContainsKey(number))
+            {
+                counts[number]++;
+            }
+            else
+            {
+                counts[number] = 1;
+            }
+        }
+
+        foreach (int count in counts.Values)
+        {
+            if (count > 1)
+            {
+                duplicates++;
+            }
+        }
+
+        return duplicates;
     }
 }
